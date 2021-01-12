@@ -99,6 +99,7 @@ export default class App extends Component {
   async classify (model, path){
     try {
       console.log('==========||==========')
+      console.log('==========||==========')
       this.setState({
         isLoading: true
       })
