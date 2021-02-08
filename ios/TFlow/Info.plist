@@ -55,5 +55,10 @@
 	<false/>
 	<key>NSCameraUsageDescription</key>
 	<string>Allow $(PRODUCT_NAME) to use the camera</string>
+	<key>MoEngage</key>
+	<dict>
+		<key>MoEngage_APP_ID</key>
+		<string>CB4BO5LXAA79B8FZOCRGDT8P</string>
+	</dict>
 </dict>
 </plist>

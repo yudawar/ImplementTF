@@ -85,6 +85,8 @@
 #   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
 #   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
+pod 'ReactNativeMoEngage', :path => '../node_modules/react-native-moengage'
+
 #   target 'TFlowTests' do
 #     inherit! :complete
 #     # Pods for testing

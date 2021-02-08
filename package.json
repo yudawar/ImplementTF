@@ -20,6 +20,7 @@
     "react-native": "0.63.4",
     "react-native-camera": "git+https://github.com/ryanazrian/react-native-camera.git",
     "react-native-fs": "^2.14.1",
+    "react-native-moengage": "^6.1.5",
     "react-native-share": "^4.1.2",
     "react-native-unimodules": "^0.12.0"
   },

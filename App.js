@@ -1,26 +1,13 @@
-// import React, { Component } from 'react'
-// import { Text, View } from 'react-native'
-
-// import * as tf from '@tensorflow/tfjs';
-// import '@tensorflow/tfjs-react-native';
-
-// export default class App extends Component {
-//   render() {
-//     return (
-//       <View>
-//         <Text> textInComponent </Text>
-//       </View>
-//     )
-//   }
-// }
-
 import React, { Component } from 'react'
-import { Text, View, SafeAreaView, Button } from 'react-native'
+import { Text, View, SafeAreaView, Button, Dimensions, ScrollView , PixelRatio} from 'react-native'
 
 import {Constants} from 'react-native-unimodules'
 import * as tf from '@tensorflow/tfjs';
 import { fetch, bundleResourceIO } from '@tensorflow/tfjs-react-native';
 import * as jpeg from 'jpeg-js'
+import ReactMoE, {
+  MoEAppStatus
+} from 'react-native-moengage'
 
 export default class App extends Component {
   
@@ -32,6 +19,13 @@ export default class App extends Component {
       imageLink: "https://www.unicef.org/sudan/sites/unicef.org.sudan/files/styles/hero_desktop/public/1920x1080%20Banner%202.jpg?itok=tI7ypoZF",
       predictions: '-',
       isLoading: false,
+      width:Dimensions.get('screen').width,
+      height:Dimensions.get('screen').height,
+      wwidth:Dimensions.get('window').width,
+      wheight:Dimensions.get('window').height,
+      // pixelWidth: PixelRatio. ,
+      // pixelHeight:
+      
     };
 
   }
@@ -39,6 +33,12 @@ export default class App extends Component {
   componentDidMount() {
     console.log('[+]starting apps')
     this.loadModel()
+    // console.log('[+] setting user unique ID')
+    // ReactMoE.setUserUniqueID("abc@xyz.com");
+    console.log('[+] check reactMoe function')
+    ReactMoE.initialize();
+    ReactMoE.setAppStatus(MoEAppStatus.Install);
+    
   }
 
   async loadModel() {
@@ -122,14 +122,43 @@ export default class App extends Component {
     }
   }
 
+
+
   render() {
+    ReactMoE.showInApp()
     return (
       <SafeAreaView>
-        <Text> textInComponent </Text>
-        {/* <Text>{Constants.systemFonts}</Text> */}
+        {/* <Text> textInComponent </Text>
+        <Text>{Constants.systemFonts}</Text>
         <Text>{this.state.isLoading+''}</Text>
         <Text>{this.state.predictions}</Text>
-        <Button title="classify" onPress={() =>this.classify()}/>
+        <Button title="classify" onPress={() =>this.classify()}/> */}
+
+        <ScrollView>
+        <View style={{
+          width: this.state.width,
+          height: this.state.height,
+          backgroundColor: 'pink',
+          // justifyContent: 'space-between'
+        }}>
+          <Text>ini pake screen</Text>
+          <Text>Height: {this.state.height}</Text>
+          <Text>Width: {this.state.width}</Text>
+          <Text>{PixelRatio.get()}</Text>
+          <Text>{PixelRatio.getPixelSizeForLayoutSize(this.state.width)}</Text>
+          <Text>{PixelRatio.getPixelSizeForLayoutSize(this.state.height)}</Text>
+        </View>
+        <View style={{
+          width: this.state.wwidth,
+          height: this.state.wheight,
+          backgroundColor: 'orange',
+          // justifyContent: 'space-between'
+        }}>
+          <Text>ini pake window</Text>
+          <Text>Height: {this.state.wheight}</Text>
+          <Text>Width: {this.state.wwidth}</Text>
+        </View>
+        </ScrollView>
       </SafeAreaView>
     )
   }

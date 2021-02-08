@@ -6,6 +6,11 @@ import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
+import com.moengage.core.Logger;
+import com.moe.pushlibrary.MoEHelper;
+import com.moengage.core.MoEngage;
+import com.moengage.react.MoEInitializer;
+import com.moengage.react.MoEReactPackage;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -40,7 +45,8 @@ public class MainApplication extends Application implements ReactApplication {
           // packages.add(new MyReactNativePackage());
           // return packages;
           return Arrays.<ReactPackage>asList(
-            new MainReactPackage(), // <---- add comma 
+            new MainReactPackage(),
+            new MoEReactPackage(), // <---- add comma 
             new RNFSPackage(), // <---------- add package 
             new ModuleRegistryAdapter(mModuleRegistryProvider)
           );
@@ -61,6 +67,13 @@ public class MainApplication extends Application implements ReactApplication {
   public void onCreate() {
     super.onCreate();
     SoLoader.init(this, /* native exopackage */ false);
+    // MoEngage moEngage =
+    //     new MoEngage.Builder(this, "CB4BO5LXAA79B8FZOCRGDT8P") //App ID moengage
+    //                 .build();
+    // MoEInitializer.initialize(moEngage);
+    MoEngage.Builder moEngage =
+        new MoEngage.Builder(this, "CB4BO5LXAA79B8FZOCRGDT8P");
+    MoEInitializer.INSTANCE.initialize(getApplicationContext(), moEngage);
     initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
   }
 

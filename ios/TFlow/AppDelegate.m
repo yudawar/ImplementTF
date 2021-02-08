@@ -8,6 +8,8 @@
 #import <UMCore/UMModuleRegistry.h>
 #import <UMReactNativeAdapter/UMNativeModulesProxy.h>
 #import <UMReactNativeAdapter/UMModuleRegistryAdapter.h>
+#import <ReactNativeMoEngage/MOReactInitializer.h>
+
 // #if DEBUG
 #ifdef FB_SONARKIT_ENABLED
 #import <FlipperKit/FlipperClient.h>
@@ -38,6 +40,10 @@ static void InitializeFlipper(UIApplication *application) {
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+// // Redirect Data Method
+// [MoEngage redirectDataToRegion:MOE_REGION_DEFAULT];
+
+[[MOReactInitializer sharedInstance] intializeSDKWithLaunchOptions:launchOptions];
 #ifdef FB_SONARKIT_ENABLED // #if DEBUG
   InitializeFlipper(application);
 #endif

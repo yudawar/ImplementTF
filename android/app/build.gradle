@@ -196,6 +196,12 @@ dependencies {
     implementation "com.facebook.react:react-native:+"  // From node_modules
 
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
+    // add RN-moengage
+    implementation project(':react-native-moengage')
+    implementation "com.moengage:moe-android-sdk:10.6.00"
+    implementation("androidx.core:core:1.3.1")
+    implementation("androidx.appcompat:appcompat:1.2.0")
+    implementation("androidx.lifecycle:lifecycle-process:2.2.0")
 
     addUnimodulesDependencies()
 
