@@ -87,6 +87,8 @@
 
 pod 'ReactNativeMoEngage', :path => '../node_modules/react-native-moengage'
 
+pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
+
 #   target 'TFlowTests' do
 #     inherit! :complete
 #     # Pods for testing

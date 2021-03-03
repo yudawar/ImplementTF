@@ -6,6 +6,8 @@ import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
+import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
+import com.th3rdwave.safeareacontext.SafeAreaContextPackage;
 import com.moengage.core.Logger;
 import com.moe.pushlibrary.MoEHelper;
 import com.moengage.core.MoEngage;
@@ -46,6 +48,8 @@ public class MainApplication extends Application implements ReactApplication {
           // return packages;
           return Arrays.<ReactPackage>asList(
             new MainReactPackage(),
+            new RNGestureHandlerPackage(),
+            new SafeAreaContextPackage(),
             new MoEReactPackage(), // <---- add comma 
             new RNFSPackage(), // <---------- add package 
             new ModuleRegistryAdapter(mModuleRegistryProvider)
