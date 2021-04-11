@@ -12,7 +12,7 @@
 //       </View>
 //     )
 //   }
-// }
+// } hapus yang ini nantinya ya
 
 import React, { Component } from 'react'
 import { Text, View, SafeAreaView, Button } from 'react-native'
